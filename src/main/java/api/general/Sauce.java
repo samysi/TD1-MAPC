@@ -1,6 +1,8 @@
 package api.general;
 
-public class Sauce implements Product {
+public class Sauce implements FoodProduct {
+
+
 
     public static enum SauceType {
         BURGER, BARBECUE, BEARNAISE;
@@ -17,6 +19,11 @@ public class Sauce implements Product {
     public Sauce(SauceType type, double weight) {
         this.type = type;
         this.weight = weight;
+    }
+
+    @Override
+    public double calories_per_100g() {
+        return 0;
     }
 
     @Override

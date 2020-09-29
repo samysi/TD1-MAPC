@@ -2,7 +2,7 @@ package api.general;
 
 import java.util.List;
 
-public class Burger implements Product {
+public class Burger implements FoodProduct {
 
     String name;
     List<Product> items;
@@ -10,6 +10,11 @@ public class Burger implements Product {
     public Burger(String name, List<Product> items) {
         this.name = name;
         this.items = items;
+    }
+
+    @Override
+    public double calories_per_100g() {
+        return calories() / weight() *100;
     }
 
     @Override
@@ -33,6 +38,10 @@ public class Burger implements Product {
         buffer.append(DELIM);
         buffer.append(String.format("price:         %.2f\n", price()));
         buffer.append(DELIM);
+       /* buffer.append(String.format("calories        %.2f\n", calorie));
+        buffer.append(DELIM);*/
         return buffer.toString();
     }
+
+
 }
